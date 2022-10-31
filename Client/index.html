@@ -46,7 +46,7 @@
         <div class="card mb-30" v-for="contact in contacts">
             <div class="card-body">
                 <h6 class="card-title" :style="{color: contact.marked ? 'green' : 'black'}">Название: {{contact.name}}</h6>
-                <h6 class="card-text" :style="{color: contact.marked ? 'green' : 'black'}">Стоимость: {{contact.value}}</h6>
+                <h6 class="card-text" :style="{color: contact.marked ? 'green' : 'black'}">Описание: {{contact.value}}</h6>
                 <h6 class="card-text" :style="{color: contact.marked ? 'green' : 'black'}">Наличие: {{contact.value1}}</h6>
                 <button class="btn btn-primary" @click="markContact(contact.id)" :disabled="contact.marked">Отметить</button>
                 <button class="btn btn-danger" @click="removeContact(contact.id)">Удалить</button>
