@@ -36,7 +36,7 @@ new Vue({
 
             this.contacts.push(newContact)
 
-            this.form.name = this.form.value = this.form.value1 = ""
+            this.form.name = this.form.value = this.form.value1 = this.form.date1 = this.form.date2 = ""
         },
         async markContact(id) {
             const contact = this.contacts.find(c => c.id === id)
@@ -50,12 +50,13 @@ new Vue({
             await request(`/api/contacts/${id}`, "DELETE")
             this.contacts = this.contacts.filter(c => c.id !== id)
         }
-    },
-    async mounted() {
-        this.loading = true
-        this.contacts = await request("/api/contacts")
-        this.loading = false
-    }
+        },
+        async mounted() {
+            this.loading = true
+            this.contacts = await request("/api/contacts")
+            this.loading = false
+        },
+
 })
 
 async function request(url, method = "GET", data = null) {
